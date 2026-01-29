@@ -1,0 +1,65 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**************************************
+     * HELPER FUNCTIONS
+     **************************************/
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function isStaffOrAdmin() {
+      // Check if the user is authenticated and if their role in their own user document is 'admin' or 'staff'.
+      return request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'staff'];
+    }
+
+    /**************************************
+     * USERS COLLECTION
+     **************************************/
+    match /users/{userId} {
+
+      // PUBLIC SIGNUP: Anyone can create a user document during registration.
+      // This is the key change to fix the registration error.
+      allow create: if true;
+
+      // USER ACCESS: A logged-in user can read/update ONLY their own profile.
+      allow read, update: if isOwner(userId);
+
+      // ADMIN/STAFF ACCESS: Admins/Staff can view any user's profile.
+      allow get, list: if isStaffOrAdmin();
+
+      // DELETE: No one can delete user documents.
+      allow delete: if false;
+    }
+
+
+    /**************************************
+     * SETTINGS COLLECTION (Admin/Staff only)
+     **************************************/
+    match /settings/{docId} {
+      allow read, write: if isStaffOrAdmin();
+    }
+
+
+    /**************************************
+     * WEBSITE PAGES (Public view)
+     **************************************/
+    match /website_pages/{pageId} {
+      // Public read for all static website data.
+      allow get, list: if true;
+
+      // Admin/Staff can modify pages.
+      allow write: if isStaffOrAdmin();
+
+      // Nested collections (like gallery images) follow the same rules.
+      match /{allChildren=**} {
+        allow read, write: if isStaffOrAdmin();
+        allow list: if true;
+      }
+    }
+  }
+}

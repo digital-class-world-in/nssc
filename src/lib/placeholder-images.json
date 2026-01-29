@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "administrator-profile",
+      "description": "Profile picture of Dr.krushana yadav",
+      "imageUrl": "https://ik.imagekit.io/rgazxzsxr/WhatsApp%20Image%202025-11-15%20at%2012.25.54_baa996f7.jpg?updatedAt=1763204157523",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "registrar-profile",
+      "description": "Profile picture of Dr. Nill Ahuja",
+      "imageUrl": "https://ik.imagekit.io/rgazxzsxr/Dr%20Nill%20Ahuja%202.png?updatedAt=1763204157494",
+      "imageHint": "female portrait"
+    },
+    {
+      "id": "carousel-1",
+      "description": "Image of a professional meeting or conference.",
+      "imageUrl": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb25mZXJlbmNlJTIwbWVldGluZ3xlbnwwfHx8fDE3NTk1Mzk2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "conference meeting"
+    },
+    {
+      "id": "carousel-2",
+      "description": "Image of a speaker at a podium.",
+      "imageUrl": "https://images.unsplash.com/photo-1758691736545-5c33b6255dca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcmVzZW50YXRpb24lMjBjb25mZXJlbmNlfGVufDB8fHx8MTc1OTQ5NTMzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "presentation conference"
+    },
+    {
+      "id": "carousel-3",
+      "description": "Image of an audience in a seminar.",
+      "imageUrl": "https://images.unsplash.com/photo-1758691736591-5bf31a5d0dea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhdWRpZW5jZSUyMHNlbWluYXJ8ZW58MHx8fHwxNzU5NTY4NDIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "audience seminar"
+    }
+  ]
+}
